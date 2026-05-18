@@ -16,8 +16,11 @@ Useful overrides:
 
 ```bash
 make TOPSRC=/path/to/lexbor CC=gcc AR=ar RANLIB=ranlib \
-     CFLAGS="-O2" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS=""
+     CFLAGS="-O2" CPPFLAGS="-D_FORTIFY_SOURCE=2"
 ```
+
+`LDFLAGS` is accepted and forwarded to optional CMake-driven targets
+(`tests`, `examples`, `benchmarks`, `project-utils`).
 
 Requirements:
 
