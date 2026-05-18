@@ -19,9 +19,18 @@ make TOPSRC=/path/to/lexbor CC=gcc AR=ar RANLIB=ranlib \
      CFLAGS="-O2" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS=""
 ```
 
+Requirements:
+
+* GNU Make
+* A POSIX shell environment and standard build tools (`cc`, `ar`, `ranlib`)
+* `install` utility for the `install` target
+
 Default target:
 
 * `all` — builds all module archives.
+
+Each module archive is built independently. When linking your executable, link
+the module archives your application uses (and their transitive dependencies).
 
 Install:
 
