@@ -61,7 +61,7 @@ ALL_LIBS := $(foreach m,$(MODULES),$(MODULE_$(m)_LIB))
 ALL_OBJS := $(foreach m,$(MODULES),$(MODULE_$(m)_OBJS))
 ALL_DEPS := $(ALL_OBJS:.o=.d)
 
-.PHONY: all clean install install-headers install-libs test tests examples benchmarks project-utils
+.PHONY: all clean install install-headers install-libs tests examples benchmarks project-utils
 .PHONY: $(MODULES)
 
 all: $(ALL_LIBS)
@@ -100,7 +100,9 @@ install-headers:
 clean:
 	rm -rf "$(OBJDIR)" "$(BUILD_LIBDIR)"
 
-tests test:
+test: tests
+
+tests:
 	cmake -S "$(TOPSRC)" -B "$(BUILD_DIR)/cmake-tests" \
 		-DLEXBOR_BUILD_TESTS=ON \
 		-DLEXBOR_BUILD_EXAMPLES=OFF \
@@ -140,4 +142,5 @@ project-utils:
 		-DCMAKE_EXE_LINKER_FLAGS="$(LDFLAGS)"
 	cmake --build "$(BUILD_DIR)/cmake-utils"
 
+# Optional includes for compiler-generated dependencies (.d); missing on first build is expected.
 -include $(ALL_DEPS)
