@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgrammar_static.a CMakeFiles/grammar_static.dir/grammar.c.o CMakeFiles/grammar_static.dir/json.c.o CMakeFiles/grammar_static.dir/node.c.o CMakeFiles/grammar_static.dir/parser.c.o CMakeFiles/grammar_static.dir/test.c.o CMakeFiles/grammar_static.dir/token.c.o CMakeFiles/grammar_static.dir/tokenizer.c.o
+/usr/bin/ranlib libgrammar_static.a

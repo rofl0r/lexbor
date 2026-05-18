@@ -2,7 +2,50 @@
 
 To build and install the `lexbor` library from source code, use [CMake] (open-source, cross-platform build system).
 
-## Linux, *BSD, Mac OS X
+## GNU Make (module static archives)
+
+The repository now includes a top-level `Makefile` for GNU Make that builds each
+Lexbor module into its own static archive (`.a`).
+
+In the project root:
+```bash
+make -j16
+```
+
+Useful overrides:
+
+```bash
+make TOPSRC=/path/to/lexbor CC=gcc AR=ar RANLIB=ranlib \
+     CFLAGS="-O2" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS=""
+```
+
+Default target:
+
+* `all` — builds all module archives.
+
+Install:
+
+```bash
+make PREFIX=/usr/local DESTDIR=/tmp/pkg install
+```
+
+This installs headers into `DESTDIR/PREFIX/include` and archives into
+`DESTDIR/PREFIX/lib` (or `DESTDIR/LIBDIR` when `LIBDIR` is overridden).
+
+Optional non-default targets:
+
+* `tests` (or `test`) — configures and builds tests with CMake
+* `examples` — configures and builds examples with CMake
+* `benchmarks` — configures and builds benchmarks with CMake
+* `project-utils` — configures and builds helper utilities with CMake
+
+Clean generated objects and archives:
+
+```bash
+make clean
+```
+
+## CMake (Linux, *BSD, Mac OS X)
 
 In root directory of project (`/`):
 ```bash

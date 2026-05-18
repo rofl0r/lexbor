@@ -61,7 +61,7 @@ ALL_LIBS := $(foreach m,$(MODULES),$(MODULE_$(m)_LIB))
 ALL_OBJS := $(foreach m,$(MODULES),$(MODULE_$(m)_OBJS))
 ALL_DEPS := $(ALL_OBJS:.o=.d)
 
-.PHONY: all clean install install-headers install-libs test tests examples benchmarks utils
+.PHONY: all clean install install-headers install-libs test tests examples benchmarks project-utils
 .PHONY: $(MODULES)
 
 all: $(ALL_LIBS)
@@ -128,7 +128,7 @@ benchmarks:
 		-DCMAKE_EXE_LINKER_FLAGS="$(LDFLAGS)"
 	cmake --build "$(BUILD_DIR)/cmake-benchmarks"
 
-utils:
+project-utils:
 	cmake -S "$(TOPSRC)" -B "$(BUILD_DIR)/cmake-utils" \
 		-DLEXBOR_BUILD_TESTS=OFF \
 		-DLEXBOR_BUILD_EXAMPLES=OFF \

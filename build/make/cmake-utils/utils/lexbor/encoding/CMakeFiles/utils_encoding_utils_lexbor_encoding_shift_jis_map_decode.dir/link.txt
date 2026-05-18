@@ -1,0 +1,1 @@
+/usr/bin/cc -O2 -O2 -Wall -pedantic -pipe -std=c99 -fPIC -Wl,--dependency-file=CMakeFiles/utils_encoding_utils_lexbor_encoding_shift_jis_map_decode.dir/link.d CMakeFiles/utils_encoding_utils_lexbor_encoding_shift_jis_map_decode.dir/shift_jis_map_decode.c.o -o shift_jis_map_decode  -Wl,-rpath,/home/runner/work/lexbor/lexbor/build/make/cmake-utils ../../../liblexbor.so.3.0.0 -lm
