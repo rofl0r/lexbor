@@ -67,7 +67,7 @@ ALL_DEPS := $(ALL_OBJS:.o=.d)
 all: $(ALL_LIBS)
 
 $(MODULES):
-	@$(MAKE) --no-print-directory $(MODULE_$(subst -,_,$@)_LIB)
+	@$(MAKE) --no-print-directory $(MODULE_$@_LIB)
 
 define module_rule
 $$(MODULE_$(1)_LIB): $$(MODULE_$(1)_OBJS) $$(foreach d,$$(MOD_DEPS_$(1)),$$(MODULE_$$(d)_LIB))
