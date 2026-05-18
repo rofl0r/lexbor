@@ -15,6 +15,7 @@ LDFLAGS ?=
 ifeq ($(OS),Windows_NT)
 OS_PORT ?= windows_nt
 else
+# Non-Windows builds use the POSIX port.
 OS_PORT ?= posix
 endif
 
@@ -100,6 +101,7 @@ install-headers:
 clean:
 	rm -rf "$(OBJDIR)" "$(BUILD_LIBDIR)"
 
+# Compatibility alias for users expecting `make test`.
 test: tests
 
 tests:
