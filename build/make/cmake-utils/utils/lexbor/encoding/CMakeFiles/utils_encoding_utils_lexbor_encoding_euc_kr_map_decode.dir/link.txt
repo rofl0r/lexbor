@@ -1,1 +1,0 @@
-/usr/bin/cc -O2 -O2 -Wall -pedantic -pipe -std=c99 -fPIC -Wl,--dependency-file=CMakeFiles/utils_encoding_utils_lexbor_encoding_euc_kr_map_decode.dir/link.d CMakeFiles/utils_encoding_utils_lexbor_encoding_euc_kr_map_decode.dir/euc_kr_map_decode.c.o -o euc_kr_map_decode  -Wl,-rpath,/home/runner/work/lexbor/lexbor/build/make/cmake-utils ../../../liblexbor.so.3.0.0 -lm
