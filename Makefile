@@ -92,7 +92,9 @@ install-headers:
 	@cd "$(SOURCE_ROOT)" && \
 	find lexbor -type f -name '*.h' -print | \
 	while read -r hdr; do \
-		install -D -m 644 "$$hdr" "$(DESTDIR)$(INCLUDEDIR)/$$hdr"; \
+		dst_dir="$(DESTDIR)$(INCLUDEDIR)/$$(dirname "$$hdr")"; \
+		mkdir -p "$$dst_dir"; \
+		install -m 644 "$$hdr" "$$dst_dir/"; \
 	done
 
 clean:
